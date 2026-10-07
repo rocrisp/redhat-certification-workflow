@@ -31,17 +31,27 @@
 
 ## 2. System Under Test (SUT) Setup
 
+**Definition:** A system on which the product that needs certification is installed or configured.
+
 **Prerequisite:** Required for all certification types
 
+**Links:**
+- Setup Documentation: https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index#setting-up-the-test-environment-for-non-containerized-application-testing
+
 **Requirements:**
-- RHEL 8 or later
+- RHEL 8 or later installed
 - Red Hat subscription with Partner Certification access
-- Access to Red Hat Certification Repository
+- Red Hat Certification Repository configured
+- System registration via Red Hat Subscription Management
 
 **Steps:**
-- Configure system under test (SUT) with supported RHEL version
-- Subscribe system to Red Hat Certification Repository
-- Obtain Partner subscription for testing access from Red Hat Connect Portal
+1. Register system using Red Hat Subscription Manager
+2. Identify available subscriptions and certification pools
+3. Attach appropriate subscription pool (provides Red Hat Certification Repository access)
+4. Configure Red Hat Certification Repository
+5. (Optional) Use Red Hat-provided kickstart files to streamline OS installation
+
+**Note:** Kickstart files are available from Red Hat to simplify SUT OS installation
 
 ---
 
