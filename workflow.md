@@ -1,63 +1,96 @@
 # Red Hat Certification Workflow Pipeline
 
-## 1. Container Certification Pipeline
+## 1. Onboarding & Product Listing Setup
 
-*   **Stage 1: Certification Onboarding**
-    *   **Details:** Join the Red Hat Connect program, create a "Containerized Application" product listing, and add your components[cite: 1].
-    *   **Action:** Generate a Pyxis API key from the Red Hat Partner Connect portal to enable automated test submissions via the REST API[cite: 1, 5].
-    *   **Links:** [Red Hat Partner Connect Portal](https://connect.redhat.com/partner-admin/dashboard)[cite: 5]
+**Tool:** Red Hat Partner Connect Portal
 
-*   **Stage 2: Certification Testing**
-    *   **Details:** Build your container image using Podman and push it to an OCI-compliant registry[cite: 1, 5]. Download and execute the Preflight utility against your image[cite: 1, 5].
-    *   **Pipeline Example:**
-        ```bash
-        preflight check container registry.example.org/<namespace>/<image>:<tag> \
-          --submit \
-          --pyxis-api-token=<api_token> \
-          --certification-project-id=<component_id> \
-          --docker-config=./temp-auth.json
-        ```[cite: 1, 5]
+**Links:**
+- Portal: https://connect.redhat.com/
+- Documentation: https://docs.redhat.com/en/documentation/red_hat_software_certification/2026/html/red_hat_software_certification_quick_start_guide
 
-*   **Stage 3: Vulnerability Scanning & Publishing**
-    *   **Details:** Red Hat asynchronously scans the submitted image layers for vulnerabilities and assigns a Container Health Index grade[cite: 1, 5, 10].
-    *   **Action:** Once the image achieves a passing grade (Grade A), publish it to the Red Hat Ecosystem Catalog[cite: 1, 10].
-    *   **Links:** [Red Hat Ecosystem Catalog](https://catalog.redhat.com/)[cite: 8]
+**Steps:**
+- Join program, accept agreements, create product listing, and add components
 
-## 2. Operator Certification Pipeline
+---
 
-*   **Stage 1: Prerequisites & Onboarding**
-    *   **Details:** Ensure all containers referenced in your Operator Bundle are certified and published first[cite: 1]. Convert your operator to the File-Based Catalog (FBC) format[cite: 1].
-    *   **Example FBC Configuration (`ci.yaml`):**
-        ```yaml
-        cert_project_id: <your component pid>
-        fbc:
-          enabled: true
-        ```[cite: 1]
+## 2. Container Certification (Prerequisite)
 
-*   **Stage 2: Automated Testing (CI/CD)**
-    *   **Details:** Fork the Red Hat `certified-operators` repository, add your operator bundle, and submit a GitHub Pull Request[cite: 1, 2, 4].
-    *   **Validation Rules:** The PR title must match `operator <package-name> (<version>)`[cite: 1, 4]. Referenced images must be pinned to specific SHA digests instead of tags[cite: 1, 4].
-    *   **Links:** [Certified Operators Repository](https://github.com/redhat-openshift-ecosystem/certified-operators)[cite: 2, 3]
+**Tool:** Preflight CLI & Red Hat Vulnerability Scanner
 
-*   **Stage 3: Catalog Auto-Release**
-    *   **Details:** To automate the catalog release process, include a `release-config.yaml` file inside your bundle version directory[cite: 1]. The CI pipeline will build the bundle, run tests, and auto-merge the catalog updates[cite: 1].
-    *   **Example Auto-Release Configuration (`release-config.yaml`):**
-        ```yaml
-        ---
-        catalog_templates:
-          - template_name: basic.yaml
-            channels: [stable]
-            replaces: <your-operator-name>.v1.2.2
-        ```[cite: 1]
+**Links:**
+- Preflight Tool: https://github.com/redhat-openshift-ecosystem/openshift-preflight/releases/latest
+- Pyxis API Docs: https://catalog.redhat.com/api/containers/docs/
 
-## 3. Helm Chart Certification Pipeline
+**Steps:**
+- Build image → Push to Registry → Run `preflight check container` → Submit results
+- Preflight conducts extensive static analysis and policy checks
+- Red Hat scans for vulnerabilities and assigns a Container Health Index grade (requires Grade "A")
 
-*   **Stage 1: Validation & Onboarding**
-    *   **Details:** Verify that all images deployed by the Helm chart are Red Hat certified[cite: 1]. Create a Helm Chart component in the Partner Connect portal[cite: 1].
+**Pipeline Example:**
+```bash
+preflight check container registry.example.org/<namespace>/<image>:<tag> \
+  --submit \
+  --pyxis-api-token=<api_token> \
+  --certification-project-id=<component_id> \
+  --docker-config=./temp-auth.json
+```
 
-*   **Stage 2: Verification Testing**
-    *   **Details:** Fork the Red Hat upstream repository and run the `chart-verifier` CLI tool[cite: 1]. This tool checks chart formatting and validates required OpenShift metadata[cite: 1].
+---
 
-*   **Stage 3: Pull Request Submission & Publishing**
-    *   **Details:** Submit the certified Helm chart, the generated chart verification report, or both via a pull request to the Red Hat OpenShift Helm chart repository[cite: 1].
-    *   **Links:** Customers can download published charts from `charts.openshift.io` and the Red Hat Ecosystem Catalog[cite: 1].
+## 3. Orchestration Certification
+
+### Operator Workflow
+
+**Tool:** Operator Pipelines / Operator SDK
+
+**Links:**
+- Operator Pipelines Docs: https://redhat-openshift-ecosystem.github.io/operator-pipelines/
+- Certified Operators Repo: https://github.com/redhat-openshift-ecosystem/certified-operators
+- Marketplace Operators Repo: https://github.com/redhat-openshift-ecosystem/redhat-marketplace-operators
+
+**Steps:**
+- Fork Red Hat repo, add bundle
+- Check formatting locally using `operator-courier verify`
+- Run CI pipeline to test OLM deployment
+- Submit GitHub Pull Request; automated PR pipelines check annotations and formatting
+
+### Helm Chart Workflow
+
+**Tool:** Chart Verifier (`chart-verifier`)
+
+**Links:**
+- Chart Verifier Tool: https://github.com/redhat-certification/chart-verifier
+- Partner Connect Portal: https://connect.redhat.com/
+
+**Steps:**
+- Verify that all images deployed by the Helm chart are Red Hat certified
+- Fork the Red Hat upstream repository and run the `chart-verifier` CLI tool
+- This tool checks chart formatting and validates required OpenShift metadata
+- Submit certified Helm chart and verification report via pull request
+- Customers can download published charts from https://charts.openshift.io and the Red Hat Ecosystem Catalog
+
+---
+
+## 4. Specialized Badge Certification (CNI, CSI, CNF)
+
+**Tool:** OpenShift Operator Pipelines (Custom test plans)
+
+**Links:**
+- Policy Documentation: https://docs.redhat.com/en/documentation/red_hat_software_certification/2026/html/red_hat_openshift_software_certification_policy_guide
+
+**Steps:**
+- Run specialized OpenShift interoperability and lifecycle tests
+- Submit results via Red Hat Certification Portal or GitHub PR
+
+---
+
+## 5. Publishing & Lifecycle
+
+**Tool:** Red Hat Ecosystem Catalog
+
+**Links:**
+- Catalog: https://catalog.redhat.com/
+
+**Steps:**
+- Merge PRs, publish to Catalog / embedded OperatorHub
+- Maintain application components and periodically rebuild containers for recertification
