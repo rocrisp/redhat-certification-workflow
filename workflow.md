@@ -7,13 +7,45 @@
 **Links:**
 - Portal: https://connect.redhat.com/
 - Documentation: https://docs.redhat.com/en/documentation/red_hat_software_certification/2026/html/red_hat_software_certification_quick_start_guide
+- Workflow Guide: https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index
 
 **Steps:**
-- Join program, accept agreements, create product listing, and add components
+- Join Red Hat Connect Technology Partner Program
+- Accept program terms and conditions
+- Create a product listing (select category: Standalone, Containerized, or OpenStack)
+- Complete company profile information
+- Add components to the product listing
+- Complete product listing information tabs:
+  - General
+  - Features
+  - Quick Start
+  - Resources
+  - FAQs
+  - Support
+  - Contacts
+  - Legal
+  - SEO
+- Generate API key for automation (if using automated submission)
 
 ---
 
-## 2. Container Certification (Prerequisite)
+## 2. System Under Test (SUT) Setup
+
+**Prerequisite:** Required for all certification types
+
+**Requirements:**
+- RHEL 8 or later
+- Red Hat subscription with Partner Certification access
+- Access to Red Hat Certification Repository
+
+**Steps:**
+- Configure system under test (SUT) with supported RHEL version
+- Subscribe system to Red Hat Certification Repository
+- Obtain Partner subscription for testing access from Red Hat Connect Portal
+
+---
+
+## 3. Container Certification (Prerequisite for Operators & Helm Charts)
 
 **Tool:** Preflight CLI & Red Hat Vulnerability Scanner
 
@@ -37,7 +69,28 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 ---
 
-## 3. Orchestration Certification
+## 4. Test Plan Execution & Results Submission
+
+**Tool:** Red Hat Certification Portal
+
+**Links:**
+- Certification Portal: https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index
+- Workflow Guide: https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index
+
+**Steps:**
+- Log in to Red Hat Certification Portal
+- Download test plan for your component/product
+- Configure System Under Test (SUT) according to test plan requirements
+- Run certification tests on your SUT using:
+  - CLI interface, or
+  - Cockpit web interface
+- Review test results
+- Download results files
+- Upload results to Red Hat Certification Portal
+
+---
+
+## 5. Orchestration Certification
 
 ### Operator Workflow
 
@@ -71,7 +124,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 ---
 
-## 4. Specialized Badge Certification (CNI, CSI, CNF)
+## 6. Specialized Badge Certification (CNI, CSI, CNF)
 
 **Tool:** OpenShift Operator Pipelines (Custom test plans)
 
@@ -84,7 +137,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 ---
 
-## 5. Publishing & Lifecycle
+## 7. Publishing & Lifecycle
 
 **Tool:** Red Hat Ecosystem Catalog
 
@@ -92,5 +145,8 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 - Catalog: https://catalog.redhat.com/
 
 **Steps:**
-- Merge PRs, publish to Catalog / embedded OperatorHub
+- Add certified application to product listing page
+- Merge approved PRs (for Operators and Helm Charts)
+- Publish to Red Hat Ecosystem Catalog and embedded OperatorHub
 - Maintain application components and periodically rebuild containers for recertification
+- Product information is displayed on the Red Hat Ecosystem Catalog using provided product information
