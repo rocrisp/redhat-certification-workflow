@@ -144,6 +144,60 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 ---
 
+## Partner Q&A: Common Certification Questions
+
+### Q: Our solution requires privileged/root containers. Is this a blocker for certification?
+
+**A:** No. Exceptions can be granted for root/privileged containers when there is a valid technical justification. The check exists to enforce least-privilege by default — not to block legitimate use cases. Provide a brief technical justification (e.g., "we require root to collect Layer 7 network data via eBPF"), and the exception will be noted in Pyxis so Preflight skips that check for your image. You will still receive certification.
+
+---
+
+### Q: We don't use UBI. Is using Red Hat UBI (Universal Base Image) mandatory?
+
+**A:** UBI is required, but switching is usually straightforward — it is essentially a drop-in replacement. You can add any packages available in RHEL on top of it. The key restriction is: do not replace or modify packages that are shipped in the Red Hat UBI base image (e.g., overwriting a Red Hat RPM binary). That will be flagged. Adding your own packages on top of UBI is fine.
+
+- Pin to a major version (e.g., `ubi9`) rather than a point release, and run a full package update as the first step in your Dockerfile. This ensures every build uses the latest UBI, which is a rolling distro updated every ~3 weeks.
+
+---
+
+### Q: We release minor versions every week and patches every 2 days. Do we need to recertify each release?
+
+**A:** Each image must have Preflight run against it, but the process is lightweight once set up. Preflight is a static analysis tool (small Go binary, also available as a container) that pulls your image, runs checks, and submits results. It integrates easily into CI/CD pipelines. Partners commonly automate this so every build triggers Preflight automatically. It is not a heavy lift per release.
+
+---
+
+### Q: Do we need to upload images or scan results to Red Hat?
+
+**A:** No. Red Hat only needs to be able to pull your image. If your registry is private, provide credentials. Red Hat runs its own vulnerability scanner and assigns a Container Health Index grade. You do not need to upload scan results separately.
+
+---
+
+### Q: What are the labels and tagging requirements?
+
+**A:** Two main rules:
+- **Unique tags**: Your image must have a tag other than `latest`. Any meaningful version tag satisfies this.
+- **Prohibited label content**: Labels must not contain the `org.redhat` prefix (reserved for Red Hat). This check rarely causes issues for partners.
+
+---
+
+### Q: What is Preflight?
+
+**A:** Preflight is a Red Hat-built open-source CLI tool (written in Go) that runs all certification checks for containers and operators. It performs static analysis — pulling the image, checking policy compliance, and submitting results to the Red Hat backend (Pyxis). It can run standalone or from a container, and integrates into any CI/CD pipeline.
+
+- Container checks: [https://github.com/redhat-openshift-ecosystem/openshift-preflight/blob/main/docs/skills/preflight-check-container/SKILL.md#common-container-checks](https://github.com/redhat-openshift-ecosystem/openshift-preflight/blob/main/docs/skills/preflight-check-container/SKILL.md#common-container-checks)
+
+---
+
+### Q: How do we get started?
+
+**A:**
+1. Ensure you have an account on [connect.redhat.com](https://connect.redhat.com/)
+2. Contact your Red Hat partner manager to help with account setup, project creation, and exception requests
+3. The Red Hat certification team handles the technical side once the project is set up
+4. Reach out via the dedicated partner Slack channel for ongoing technical questions
+
+---
+
 ## Appendix: Cockpit (Optional Testing Interface)
 
 **Description:** Cockpit is an optional web-based system management interface that can be used as an alternative to CLI for running certification tests.
