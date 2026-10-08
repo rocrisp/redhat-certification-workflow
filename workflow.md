@@ -29,33 +29,7 @@
 
 ---
 
-## 2. System Under Test (SUT) Setup
-
-**Definition:** A system on which the product that needs certification is installed or configured.
-
-**Prerequisite:** Required for all certification types
-
-**Links:**
-- Setup Documentation: [https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index](https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index)
-
-**Requirements:**
-- RHEL 8 or later installed
-- Red Hat subscription with Partner Certification access
-- Red Hat Certification Repository configured
-- System registration via Red Hat Subscription Management
-
-**Steps:**
-1. Install RHEL 8 or later on your system
-2. Register system using Red Hat Subscription Manager
-3. Identify available subscriptions and certification pools
-4. Attach appropriate subscription pool (provides Red Hat Certification Repository access)
-5. Configure Red Hat Certification Repository using RHN credentials
-
-**Optional:** Use Red Hat-provided kickstart files to streamline OS installation
-
----
-
-## 3. Container Certification (Prerequisite for Operators & Helm Charts)
+## 2. Container Certification (Prerequisite for Operators & Helm Charts)
 
 **Tool:** Preflight CLI & Red Hat Vulnerability Scanner
 
@@ -79,7 +53,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 ---
 
-## 4. Test Plan Execution & Results Submission
+## 3. Test Plan Execution & Results Submission
 
 **Tool:** Red Hat Certification Portal
 
@@ -97,7 +71,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 ---
 
-## 5. Orchestration Certification
+## 4. Orchestration Certification
 
 ### Operator Workflow
 
@@ -131,7 +105,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 ---
 
-## 6. Specialized Badge Certification (CNI, CSI, CNF)
+## 5. Specialized Badge Certification (CNI, CSI, CNF)
 
 **Tool:** OpenShift Operator Pipelines (Custom test plans)
 
@@ -144,7 +118,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 ---
 
-## 7. Publishing & Lifecycle
+## 6. Publishing & Lifecycle
 
 **Tool:** Red Hat Ecosystem Catalog
 
