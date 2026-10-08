@@ -35,6 +35,7 @@
 
 **Links:**
 - Preflight Tool: [https://github.com/redhat-openshift-ecosystem/openshift-preflight/releases/latest](https://github.com/redhat-openshift-ecosystem/openshift-preflight/releases/latest)
+- Container Checks: [https://github.com/redhat-openshift-ecosystem/openshift-preflight/blob/main/docs/skills/preflight-check-container/SKILL.md#common-container-checks](https://github.com/redhat-openshift-ecosystem/openshift-preflight/blob/main/docs/skills/preflight-check-container/SKILL.md#common-container-checks)
 - Pyxis API Docs: [https://catalog.redhat.com/api/containers/docs/](https://catalog.redhat.com/api/containers/docs/)
 
 **Steps:**
