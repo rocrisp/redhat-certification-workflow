@@ -36,7 +36,7 @@
 **Prerequisite:** Required for all certification types
 
 **Links:**
-- Setup Documentation: https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index#setting-up-the-test-environment-for-non-containerized-application-testing
+- Setup Documentation: https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index#assembly_configuring-the-system-and-running-tests-by-using-cockpit-for-non-containerized-application_openshift-sw-cert-workflow-appendix
 
 **Requirements:**
 - RHEL 8 or later installed
