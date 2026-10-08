@@ -80,6 +80,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 **Links:**
 - Operator Pipelines Docs: [https://redhat-openshift-ecosystem.github.io/operator-pipelines/](https://redhat-openshift-ecosystem.github.io/operator-pipelines/)
+- Operator Checks: [https://github.com/redhat-openshift-ecosystem/openshift-preflight/blob/main/docs/skills/preflight-check-operator/SKILL.md](https://github.com/redhat-openshift-ecosystem/openshift-preflight/blob/main/docs/skills/preflight-check-operator/SKILL.md)
 - Certified Operators Repo: [https://github.com/redhat-openshift-ecosystem/certified-operators](https://github.com/redhat-openshift-ecosystem/certified-operators)
 - Marketplace Operators Repo: [https://github.com/redhat-openshift-ecosystem/redhat-marketplace-operators](https://github.com/redhat-openshift-ecosystem/redhat-marketplace-operators)
 
