@@ -5,9 +5,9 @@
 **Tool:** Red Hat Partner Connect Portal
 
 **Links:**
-- Portal: <a href="https://connect.redhat.com/" target="_blank">https://connect.redhat.com/</a>
-- Documentation: <a href="https://docs.redhat.com/en/documentation/red_hat_software_certification/2026/html/red_hat_software_certification_quick_start_guide" target="_blank">https://docs.redhat.com/en/documentation/red_hat_software_certification/2026/html/red_hat_software_certification_quick_start_guide</a>
-- Workflow Guide: <a href="https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index" target="_blank">https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index</a>
+- Portal: [https://connect.redhat.com/](https://connect.redhat.com/)
+- Documentation: [https://docs.redhat.com/en/documentation/red_hat_software_certification/2026/html/red_hat_software_certification_quick_start_guide](https://docs.redhat.com/en/documentation/red_hat_software_certification/2026/html/red_hat_software_certification_quick_start_guide)
+- Workflow Guide: [https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index](https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index)
 
 **Steps:**
 - Join Red Hat Connect Technology Partner Program
@@ -36,7 +36,7 @@
 **Prerequisite:** Required for all certification types
 
 **Links:**
-- Setup Documentation: <a href="https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index#assembly_configuring-the-system-and-running-tests-by-using-cockpit-for-non-containerized-application_openshift-sw-cert-workflow-appendix" target="_blank">https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index#assembly_configuring-the-system-and-running-tests-by-using-cockpit-for-non-containerized-application_openshift-sw-cert-workflow-appendix</a>
+- Setup Documentation: [https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index#assembly_configuring-the-system-and-running-tests-by-using-cockpit-for-non-containerized-application_openshift-sw-cert-workflow-appendix](https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index#assembly_configuring-the-system-and-running-tests-by-using-cockpit-for-non-containerized-application_openshift-sw-cert-workflow-appendix)
 
 **Requirements:**
 - RHEL 8 or later installed
@@ -60,8 +60,8 @@
 **Tool:** Preflight CLI & Red Hat Vulnerability Scanner
 
 **Links:**
-- Preflight Tool: <a href="https://github.com/redhat-openshift-ecosystem/openshift-preflight/releases/latest" target="_blank">https://github.com/redhat-openshift-ecosystem/openshift-preflight/releases/latest</a>
-- Pyxis API Docs: <a href="https://catalog.redhat.com/api/containers/docs/" target="_blank">https://catalog.redhat.com/api/containers/docs/</a>
+- Preflight Tool: [https://github.com/redhat-openshift-ecosystem/openshift-preflight/releases/latest](https://github.com/redhat-openshift-ecosystem/openshift-preflight/releases/latest)
+- Pyxis API Docs: [https://catalog.redhat.com/api/containers/docs/](https://catalog.redhat.com/api/containers/docs/)
 
 **Steps:**
 - Build image → Push to Registry → Run `preflight check container` → Submit results
@@ -84,8 +84,8 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 **Tool:** Red Hat Certification Portal
 
 **Links:**
-- Certification Portal: <a href="https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index" target="_blank">https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index</a>
-- Workflow Guide: <a href="https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index" target="_blank">https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index</a>
+- Certification Portal: [https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index](https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index)
+- Workflow Guide: [https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index](https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index)
 
 **Steps:**
 - Log in to Red Hat Certification Portal
@@ -107,9 +107,9 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 **Tool:** Operator Pipelines / Operator SDK
 
 **Links:**
-- Operator Pipelines Docs: <a href="https://redhat-openshift-ecosystem.github.io/operator-pipelines/" target="_blank">https://redhat-openshift-ecosystem.github.io/operator-pipelines/</a>
-- Certified Operators Repo: <a href="https://github.com/redhat-openshift-ecosystem/certified-operators" target="_blank">https://github.com/redhat-openshift-ecosystem/certified-operators</a>
-- Marketplace Operators Repo: <a href="https://github.com/redhat-openshift-ecosystem/redhat-marketplace-operators" target="_blank">https://github.com/redhat-openshift-ecosystem/redhat-marketplace-operators</a>
+- Operator Pipelines Docs: [https://redhat-openshift-ecosystem.github.io/operator-pipelines/](https://redhat-openshift-ecosystem.github.io/operator-pipelines/)
+- Certified Operators Repo: [https://github.com/redhat-openshift-ecosystem/certified-operators](https://github.com/redhat-openshift-ecosystem/certified-operators)
+- Marketplace Operators Repo: [https://github.com/redhat-openshift-ecosystem/redhat-marketplace-operators](https://github.com/redhat-openshift-ecosystem/redhat-marketplace-operators)
 
 **Steps:**
 - Fork Red Hat repo, add bundle
@@ -122,15 +122,15 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 **Tool:** Chart Verifier (`chart-verifier`)
 
 **Links:**
-- Chart Verifier Tool: <a href="https://github.com/redhat-certification/chart-verifier" target="_blank">https://github.com/redhat-certification/chart-verifier</a>
-- Partner Connect Portal: <a href="https://connect.redhat.com/" target="_blank">https://connect.redhat.com/</a>
+- Chart Verifier Tool: [https://github.com/redhat-certification/chart-verifier](https://github.com/redhat-certification/chart-verifier)
+- Partner Connect Portal: [https://connect.redhat.com/](https://connect.redhat.com/)
 
 **Steps:**
 - Verify that all images deployed by the Helm chart are Red Hat certified
 - Fork the Red Hat upstream repository and run the `chart-verifier` CLI tool
 - This tool checks chart formatting and validates required OpenShift metadata
 - Submit certified Helm chart and verification report via pull request
-- Customers can download published charts from <a href="https://charts.openshift.io" target="_blank">https://charts.openshift.io</a> and the Red Hat Ecosystem Catalog
+- Customers can download published charts from [https://charts.openshift.io](https://charts.openshift.io) and the Red Hat Ecosystem Catalog
 
 ---
 
@@ -139,7 +139,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 **Tool:** OpenShift Operator Pipelines (Custom test plans)
 
 **Links:**
-- Policy Documentation: <a href="https://docs.redhat.com/en/documentation/red_hat_software_certification/2026/html/red_hat_openshift_software_certification_policy_guide" target="_blank">https://docs.redhat.com/en/documentation/red_hat_software_certification/2026/html/red_hat_openshift_software_certification_policy_guide</a>
+- Policy Documentation: [https://docs.redhat.com/en/documentation/red_hat_software_certification/2026/html/red_hat_openshift_software_certification_policy_guide](https://docs.redhat.com/en/documentation/red_hat_software_certification/2026/html/red_hat_openshift_software_certification_policy_guide)
 
 **Steps:**
 - Run specialized OpenShift interoperability and lifecycle tests
@@ -152,7 +152,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 **Tool:** Red Hat Ecosystem Catalog
 
 **Links:**
-- Catalog: <a href="https://catalog.redhat.com/" target="_blank">https://catalog.redhat.com/</a>
+- Catalog: [https://catalog.redhat.com/](https://catalog.redhat.com/)
 
 **Steps:**
 - Add certified application to product listing page
