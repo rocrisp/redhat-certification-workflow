@@ -72,9 +72,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 ---
 
-## 4. Orchestration Certification
-
-### Operator Workflow
+## 4. Operator Certification
 
 **Tool:** Operator Pipelines / Operator SDK
 
@@ -90,7 +88,9 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 - Run CI pipeline to test OLM deployment
 - Submit GitHub Pull Request; automated PR pipelines check annotations and formatting
 
-### Helm Chart Workflow
+---
+
+## 5. Helm Chart Certification
 
 **Tool:** Chart Verifier (`chart-verifier`)
 
@@ -107,7 +107,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 ---
 
-## 5. Specialized Badge Certification (CNI, CSI, CNF)
+## 7. Specialized Badge Certification (CNI, CSI, CNF)
 
 **Tool:** OpenShift Operator Pipelines (Custom test plans)
 
@@ -120,7 +120,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 ---
 
-## 6. Publishing & Lifecycle
+## 8. Publishing & Lifecycle
 
 **Tool:** Red Hat Ecosystem Catalog
 
