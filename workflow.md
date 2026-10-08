@@ -12,7 +12,7 @@
 **Steps:**
 - Join Red Hat Connect Technology Partner Program
 - Accept program terms and conditions
-- Create a product listing (select category: Standalone, Containerized, or OpenStack)
+- Create a product listing (select category: "Containerized Application" for containers, or "Standalone" / "OpenStack" as applicable)
 - Complete company profile information
 - Add components to the product listing
 - Complete product listing information tabs:
@@ -25,7 +25,6 @@
   - Contacts
   - Legal
   - SEO
-- Generate API key for automation (if using automated submission)
 
 ---
 
@@ -39,9 +38,14 @@
 - Pyxis API Docs: [https://catalog.redhat.com/api/containers/docs/](https://catalog.redhat.com/api/containers/docs/)
 
 **Steps:**
-- Build image → Push to Registry → Run `preflight check container` → Submit results
-- Preflight conducts extensive static analysis and policy checks
-- Red Hat scans for vulnerabilities and assigns a Container Health Index grade (requires Grade "A")
+1. Build your container image
+2. Upload image to an OCI-compliant registry of your choice
+3. Download the Preflight certification utility
+4. Run Preflight against your container image
+5. Submit test results on the Red Hat Partner Connect portal
+6. Red Hat scans container layers for vulnerabilities and assigns a Container Health Index grade (requires Grade "A")
+7. Add the certified container to your Product Listing page
+8. Publish the certified product listing on the Red Hat Ecosystem Catalog
 
 **Pipeline Example:**
 ```bash
@@ -54,7 +58,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 ---
 
-## 3. Test Plan Execution & Results Submission
+## 3. Test Plan Execution & Results Submission (Standalone / Non-Containerized Apps)
 
 **Tool:** Red Hat Certification Portal
 
@@ -76,6 +80,8 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 **Tool:** Operator Pipelines / Operator SDK
 
+**Prerequisite:** All containers referenced in your Operator Bundle must be certified and published in the Red Hat Ecosystem Catalog before certifying the Operator Bundle.
+
 **Links:**
 - Operator Pipelines Docs: [https://redhat-openshift-ecosystem.github.io/operator-pipelines/](https://redhat-openshift-ecosystem.github.io/operator-pipelines/)
 - Operator Checks: [https://github.com/redhat-openshift-ecosystem/openshift-preflight/blob/main/docs/skills/preflight-check-operator/SKILL.md](https://github.com/redhat-openshift-ecosystem/openshift-preflight/blob/main/docs/skills/preflight-check-operator/SKILL.md)
@@ -83,10 +89,13 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 - Marketplace Operators Repo: [https://github.com/redhat-openshift-ecosystem/redhat-marketplace-operators](https://github.com/redhat-openshift-ecosystem/redhat-marketplace-operators)
 
 **Steps:**
-- Fork Red Hat repo, add bundle
-- Check formatting locally using `operator-courier verify`
-- Run CI pipeline to test OLM deployment
-- Submit GitHub Pull Request; automated PR pipelines check annotations and formatting
+1. Fork the Red Hat upstream certified-operators repository and add your Operator bundle
+2. Install and run the Red Hat certification pipeline on your test environment (recommended: run locally to integrate with your own CI/CD workflows)
+3. Alternatively, use Red Hat's hosted pipeline by submitting your Operator bundle via a GitHub Pull Request
+4. Review test results and troubleshoot any issues
+5. Submit final results to Red Hat via a GitHub Pull Request
+6. After the PR is merged, add the Certified Operator to your Product Listing page
+7. The Operator is published on the Red Hat Ecosystem Catalog and in the embedded OperatorHub
 
 ---
 
@@ -107,7 +116,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 ---
 
-## 7. Specialized Badge Certification (CNI, CSI, CNF)
+## 6. Specialized Badge Certification (CNI, CSI, CNF)
 
 **Tool:** OpenShift Operator Pipelines (Custom test plans)
 
@@ -120,7 +129,7 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 
 ---
 
-## 8. Publishing & Lifecycle
+## 7. Publishing & Lifecycle
 
 **Tool:** Red Hat Ecosystem Catalog
 
@@ -132,7 +141,6 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 - Merge approved PRs (for Operators and Helm Charts)
 - Publish to Red Hat Ecosystem Catalog and embedded OperatorHub
 - Maintain application components and periodically rebuild containers for recertification
-- Product information is displayed on the Red Hat Ecosystem Catalog using provided product information
 
 ---
 
