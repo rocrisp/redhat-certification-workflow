@@ -36,7 +36,7 @@
 **Prerequisite:** Required for all certification types
 
 **Links:**
-- Setup Documentation: [https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index#assembly_configuring-the-system-and-running-tests-by-using-cockpit-for-non-containerized-application_openshift-sw-cert-workflow-appendix](https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index#assembly_configuring-the-system-and-running-tests-by-using-cockpit-for-non-containerized-application_openshift-sw-cert-workflow-appendix)
+- Setup Documentation: [https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index](https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index)
 
 **Requirements:**
 - RHEL 8 or later installed
@@ -45,13 +45,13 @@
 - System registration via Red Hat Subscription Management
 
 **Steps:**
-1. Register system using Red Hat Subscription Manager
-2. Identify available subscriptions and certification pools
-3. Attach appropriate subscription pool (provides Red Hat Certification Repository access)
-4. Configure Red Hat Certification Repository
-5. (Optional) Use Red Hat-provided kickstart files to streamline OS installation
+1. Install RHEL 8 or later on your system
+2. Register system using Red Hat Subscription Manager
+3. Identify available subscriptions and certification pools
+4. Attach appropriate subscription pool (provides Red Hat Certification Repository access)
+5. Configure Red Hat Certification Repository using RHN credentials
 
-**Note:** Kickstart files are available from Red Hat to simplify SUT OS installation
+**Optional:** Use Red Hat-provided kickstart files to streamline OS installation
 
 ---
 
@@ -84,16 +84,13 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 **Tool:** Red Hat Certification Portal
 
 **Links:**
-- Certification Portal: [https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index](https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index)
 - Workflow Guide: [https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index](https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index)
 
 **Steps:**
 - Log in to Red Hat Certification Portal
 - Download test plan for your component/product
 - Configure System Under Test (SUT) according to test plan requirements
-- Run certification tests on your SUT using:
-  - CLI interface, or
-  - Cockpit web interface
+- Run certification tests on your SUT using CLI interface
 - Review test results
 - Download results files
 - Upload results to Red Hat Certification Portal
@@ -160,3 +157,17 @@ preflight check container registry.example.org/<namespace>/<image>:<tag> \
 - Publish to Red Hat Ecosystem Catalog and embedded OperatorHub
 - Maintain application components and periodically rebuild containers for recertification
 - Product information is displayed on the Red Hat Ecosystem Catalog using provided product information
+
+---
+
+## Appendix: Cockpit (Optional Testing Interface)
+
+**Description:** Cockpit is an optional web-based system management interface that can be used as an alternative to CLI for running certification tests.
+
+**Links:**
+- Cockpit Testing Guide: [https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index#assembly_configuring-the-system-and-running-tests-by-using-cockpit-for-non-containerized-application_openshift-sw-cert-workflow-appendix](https://docs.redhat.com/en/documentation/red_hat_software_certification/2025/html-single/red_hat_software_certification_workflow_guide/index#assembly_configuring-the-system-and-running-tests-by-using-cockpit-for-non-containerized-application_openshift-sw-cert-workflow-appendix)
+
+**When to Use:**
+- Cockpit is an alternative convenience tool for partners who prefer a web-based interface
+- Not required for certification; CLI testing is the primary method
+- Use this approach if you prefer web-based system management over command-line testing
