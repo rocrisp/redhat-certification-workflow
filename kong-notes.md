@@ -1,5 +1,7 @@
 # Kong Gateway Operator - Certification Notes
 
+> **Findings captured:** 2026-10-08, in preparation for Wednesday 2026-10-14 meeting with Kong.
+
 ## Current State
 
 - **Certified Operators Repo:** https://github.com/redhat-openshift-ecosystem/certified-operators/tree/main/operators/kong-gateway-operator
